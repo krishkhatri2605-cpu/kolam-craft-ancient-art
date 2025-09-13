@@ -15,40 +15,42 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-primary/10">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass-morphism border-b border-primary/20 animate-fade-in">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-sacred rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">K</span>
+          {/* Enhanced Logo */}
+          <div className="flex items-center space-x-3 group cursor-pointer">
+            <div className="w-10 h-10 bg-gradient-sacred rounded-xl flex items-center justify-center shadow-elegant hover-lift group-hover:animate-pulse-glow">
+              <span className="text-white font-bold text-base">K</span>
             </div>
-            <span className="text-xl font-serif font-bold text-foreground">KOLAM</span>
+            <span className="text-xl font-serif font-bold text-foreground group-hover:text-primary transition-colors duration-300 text-shadow-glow">
+              KOLAM
+            </span>
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Enhanced Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-200 font-medium"
+                className="sacred-link text-foreground/80 hover:text-primary transition-all duration-300 font-medium px-3 py-2 rounded-lg hover:bg-primary/5 hover:scale-105"
               >
                 {item.name}
               </a>
             ))}
           </div>
 
-          {/* Search Bar */}
-          <div className="hidden md:flex items-center relative">
+          {/* Enhanced Search Bar */}
+          <div className="hidden md:flex items-center relative group">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-primary/60 group-hover:text-primary transition-colors duration-300" />
               <Input
                 type="search"
                 placeholder="Search KOLAM patterns..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 w-64 bg-background/50 border-primary/20 focus:border-primary/40"
+                className="pl-12 w-72 glass-morphism border-primary/30 focus:border-primary/60 focus:shadow-elegant focus:scale-105 transition-all duration-300 rounded-xl shimmer-effect"
               />
             </div>
           </div>
