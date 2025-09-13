@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X, Github, ExternalLink } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Menu, X, Github, ExternalLink, Search } from "lucide-react";
 import { useState } from "react";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const navItems = [
     { name: "About", href: "#about" },
@@ -35,6 +37,20 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
+          </div>
+
+          {/* Search Bar */}
+          <div className="hidden md:flex items-center relative">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search KOLAM patterns..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 w-64 bg-background/50 border-primary/20 focus:border-primary/40"
+              />
+            </div>
           </div>
 
           {/* Desktop CTA */}
@@ -74,6 +90,21 @@ const Navigation = () => {
                   {item.name}
                 </a>
               ))}
+              
+              {/* Mobile Search */}
+              <div className="px-4 pb-4">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input
+                    type="search"
+                    placeholder="Search KOLAM patterns..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 bg-background/50 border-primary/20 focus:border-primary/40"
+                  />
+                </div>
+              </div>
+
               <div className="px-4 pt-4 space-y-2 border-t border-primary/10">
                 <Button variant="ghost" size="sm" className="w-full justify-start">
                   <Github className="w-4 h-4 mr-2" />
